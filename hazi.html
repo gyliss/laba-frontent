@@ -3,103 +3,359 @@
 <head>
     <meta charset="UTF-8">
     <title>Lorem ipsum</title>
+    <link href="https://fonts.google.com/specimen/Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css" integrity="sha256-XoaMnoYC5TH6/+ihMEnospgm0J1PM/nioxbOUdnM8HY=" crossorigin="anonymous">
     <style>
-        .p-class {
-            background-color: lightgreen;
-            font-size: larger;
+        *, *:before, *:after {
+            box-sizing: border-box;
         }
-        #footer a {
+
+        h1 {
+            padding: 9px 16px;
+            margin-bottom: 5px;
+        }
+
+        nav,footer {
+            border-radius: 5px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+            background-color: lightgrey;
+        }
+
+        .nav-item,.footer-item {
+            width: fit-content;
+            padding: 9px 16px;
+        }
+
+        a {
+            text-decoration: none;
+            color: darkblue;
+            font-weight: bold;
+        }
+        a .fa {
+            margin-right: 10px;
+        }
+
+        a:hover {
+            color: darkcyan;
+        }
+
+        .s-1 {
+            font-size: large;
+            display: inline-block;
+        }
+
+        .s-2 {
+            text-align: justify;
+            font-size: large;
+            display: inline-block;
+        }
+
+        h2 {
+            margin-left: 10px;
+            margin-bottom: unset;
+        }
+
+        .left-col {
+            padding: 5px;
+            float: left;
+        }
+
+        .s-1 .left-col {
+            width: 50%;
+        }
+
+        .s-2 .left-col {
+            width: 70%;
+        }
+
+        .right-col {
+            padding: 5px;
+            float: right;
+        }
+
+        .s-1 .right-col {
+            width: 50%;
+        }
+
+        .s-2 .right-col {
+            width: 30%;
+            border: 1px solid lightgrey;
+            border-radius: 5px;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        article {
+            padding: 5px;
+            margin-bottom: 5px;
+        }
+
+        .a-1 {
+            text-shadow: 3px 3px lightgrey;
+        }
+
+        .a-2 {
+            border: 1px solid grey;
+            width: 75%;
+            margin-bottom: 10px;
+        }
+
+        .a-3 {
+            padding: 5px;
+        }
+
+        .s-1 .a-2 {
+            text-transform: capitalize;
+            box-shadow: 5px 5px lightgrey;
+        }
+
+        .s-1 .right-col .a-3 {
+            color: lightblue;
+            background-color: lemonchiffon;
+            width: 50%;
+            color: green;
+        }
+
+        .s-2 .a-3 {
+            background-image: url("https://images.freeimages.com/images/large-previews/e83/meemu-pier-1366535.jpg");
+            background-position: center;
+            background-size: cover;
+            opacity: 0.6;
+        }
+
+        p {
+            text-indent: 10px;
+        }
+
+        .s-1 .left-col .a-1 p {
+            line-height: 18px;
+            text-align: justify;
+            font-family: "Roboto Light", Arial, "DejaVu Serif", serif;
+        }
+
+        .s-1 .left-col .a-2 p {
+            letter-spacing: 5px;
+            font-family: Arial, "DejaVu Serif", serif;
+        }
+
+        .s-2 .left-col .a-3 p {
+            font-weight: bold;
+            font-family: "DejaVu Serif", serif;
+        }
+
+        .form-container {
+            padding: 10px;
+            border: 1px solid lightgrey;
+            border-radius: 5px;
+            width: 25%;
+            margin-bottom: 5px;
+        }
+
+        .form-container .title {
             font-size: larger;
+            margin-bottom: 5px;
+        }
+
+        .form-container div {
+            margin-bottom: 5px;
+        }
+
+        .form-field {
+            padding-bottom: 10px;
+        }
+
+        .form-field label {
+            display: block;
+        }
+
+        input, textarea {
+            padding: 9px 16px;
+            border-radius: 5px;
+            border: 1px solid lightblue;
+            box-shadow: 4px 4px 4px lightgrey;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+        }
+
+        input:required:focus, textarea:required:focus {
+            outline: none;
+            border-bottom: 2px solid red;
+        }
+
+
+        input[required], textarea[required] {
+            border-bottom: 2px solid red;
+        }
+
+        input[type=number] {
+            text-align: right;
+        }
+
+        input:focus {
+            border: 1px solid darkcyan;
+        }
+
+        #form-nev {
+            width: 100%;
+        }
+
+        #form-kor {
+            width: 100px;
+        }
+
+        #form-uzenet {
+            width: 100%;
+            resize: none;
+        }
+
+        .form-container .comment {
+            font-size: x-small;
+            color: red;
+        }
+
+        .form-container button {
+            padding: 9px 16px;
+            border-radius: 5px;
+            border: 1px solid lightgrey;
+            background-color: green;
+            color: white;
+        }
+
+        .form-container button:hover {
+            background-color: yellowgreen;
         }
 
     </style>
 </head>
 <body>
-    <header id="header" title="Ez a fejléc" style="background-color: lightblue;">
+    <header id="header" title="Ez a fejléc">
         <h1>Lorem ipsum</h1>
     </header>
-    <div>
-        <a href="#footer" title="Ugrás a végére">Ugrás a végére</a>
-    </div>
+
+    <nav>
+        <div class="nav-item">
+            <a href="#footer" title="Ugrás a végére"><i class="fa fa-arrow-down" aria-hidden="true"></i>Ugrás a végére</a>
+        </div>
+    </nav>
+
     <section>
-        <p>
-            Lorem <span style="color: blue;">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
-        </p>
-    </section>
-    <section>
-        <p>
-            Lorem <span style="font-weight: bold; color: red;">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
-        </p>
-    </section>
-    <section>
-        <p class="p-class">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
-        </p>
-    </section>
-    <section>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
-        </p>
-    </section>
-    <section>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
-        </p>
-    </section>
-    <section>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
-        </p>
-    </section>
-    <section>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
-        </p>
-    </section>
-    <section>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
-        </p>
-    </section>
-    <section>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
-        </p>
-    </section>
-    <section>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
-        </p>
-    </section>
-    <section>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
-        </p>
-    </section>
-    <section>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
-        </p>
-    </section>
-    <section>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
-        </p>
-    </section>
-    <section>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
-        </p>
-    </section>
-    <section>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
-        </p>
+        <div class="s-1">
+            <h2>Lorem ipsum (section - 1)</h2>
+            <div class="left-col">
+                <article class="a-1">
+                    <h3>Lorem ipsum</h3>
+                    <p>
+                        Lorem <span style="color: blue;">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
+                    </p>
+                </article>
+                <article class="a-2">
+                    <h3>Lorem ipsum</h3>
+                    <p>
+                        Lorem <span style="color: blue;">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
+                    </p>
+                </article>
+                <article class="a-3">
+                    <h3>Lorem ipsum</h3>
+                    <p>
+                        Lorem <span style="color: blue;">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
+                    </p>
+                </article>
+            </div>
+            <div class="right-col">
+                <article class="a-1">
+                    <h3>Lorem ipsum</h3>
+                    <p>
+                        Lorem <span style="color: blue;">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
+                    </p>
+                </article>
+                <article class="a-2">
+                    <h3>Lorem ipsum</h3>
+                    <p>
+                        Lorem <span style="color: blue;">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
+                    </p>
+                </article>
+                <article class="a-3">
+                    <h3>Lorem ipsum</h3>
+                    <p>
+                        Lorem <span style="color: blue;">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
+                    </p>
+                </article>
+            </div>
+        </div>
+
+        <div class="s-2">
+            <h2>Lorem ipsum (section - 2)</h2>
+            <div class="left-col">
+                <article class="a-1">
+                    <h3>Lorem ipsum</h3>
+                    <p>
+                        Lorem <span style="color: blue;">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
+                    </p>
+                </article>
+                <article class="a-2">
+                    <h3>Lorem ipsum</h3>
+                    <p>
+                        Lorem <span style="color: blue;">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
+                    </p>
+                </article>
+                <article class="a-3">
+                    <h3>Lorem ipsum</h3>
+                    <p>
+                        Lorem <span style="color: blue;">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
+                    </p>
+                </article>
+            </div>
+            <div class="right-col">
+                <img src="https://images.freeimages.com/images/large-previews/e83/meemu-pier-1366535.jpg" alt="Picture">
+            </div>
+        </div>
     </section>
 
+    <div class="form-container">
+        <div class="title">Cikk küldése ismerősnek</div>
+
+        <form id="hazi-form" method="get">
+            <div class="form-field">
+                <label for="form-nev">Név
+                    <input id="form-nev" type="text" name="nev" placeholder="Név.." required>
+                </label>
+            </div>
+            <div class="form-field">
+                <label for="form-tel">Telefonszám</label>
+                <input id="form-tel" type="text" name="tel" placeholder="Telefonszám..">
+            </div>
+            <div class="form-field">
+                <label for="form-email">Email</label>
+                <input id="form-email" type="email" name="email" placeholder="Email.." required>
+            </div>
+            <div class="form-field">
+                <label for="form-kor">Kor</label>
+                <input id="form-kor" type="number" name="kor">
+            </div>
+            <div class="form-field">
+                <label for="form-uzenet">Üzenet</label>
+                <textarea id="form-uzenet" form="hazi-form" name="uzenet" rows="5"></textarea>
+            </div>
+            <div class="comment">
+                Pirossal jelölt mezőket kötelező kitölteni!
+            </div>
+            <div>
+                <button type="submit">Küldés</button>
+            </div>
+        </form>
+    </div>
+
     <footer id="footer" title="Ez a lábléc">
-        Lorem ipsum
-        <a href="#header" title="Ugrás az alajére">Ugrás az elejére</a>
+        <div class="footer-item">
+            <a href="#header" title="Ugrás az elejére"><i class="fa fa-arrow-up" aria-hidden="true"></i>Ugrás az elejére</a>
+        </div>
     </footer>
 </body>
 </html>
