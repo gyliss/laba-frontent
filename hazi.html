@@ -10,6 +10,28 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --border-color-default: lightgray;
+            --border-color-dark: darkgray;
+            --border-default: 1px solid var(--border-color-default);
+            --border-radius: 5px;
+            --padding-default: 5px;
+            --padding-double: calc(var(--padding-default) * 2);
+            --padding-hd-16-9: 9px 16px;
+            --margin-default: 5px;
+            --margin-double: calc(var(--margin-default) * 2);
+            --background-color-default: white;
+            --color-default: black;
+
+            background-color: var(--background-color-default);
+            color: var(--color-default);
+            color-scheme: light;
+        }
+
+        body {
+            margin: var(--margin-default);
+        }
+
         .font-blue {
             color: blue;
         }
@@ -23,21 +45,55 @@
         }
 
         h1 {
-            padding: 9px 16px;
-            margin-bottom: 5px;
+            padding: var(--padding-hd-16-9);
+            margin-bottom: var(--margin-default);
+            margin-top: 0;
         }
 
-        nav,footer {
-            border-radius: 5px;
-            padding-top: 5px;
-            padding-bottom: 5px;
-            margin-bottom: 5px;
+        nav {
+            display: flex;
+            flex-direction: row; /* tudom, hogy nem kell */
+            border-radius: var(--border-radius);
+            padding-top: var(--padding-default);
+            padding-bottom: var(--padding-default);
+            margin-top: var(--margin-default);
             background-color: lightgrey;
         }
 
-        .nav-item,.footer-item {
+        footer {
+            display: flex;
+            flex-direction: row;
+            border-radius: var(--border-radius);
+            padding-top: var(--padding-default);
+            padding-bottom: var(--padding-default);
+            margin-top: var(--margin-default);
+            background-color: lightgrey;
+        }
+
+        .nav-item, .footer-item {
+            display: flex;
+            align-items: end;
             width: fit-content;
-            padding: 9px 16px;
+            padding: var(--padding-hd-16-9);
+        }
+
+        @media screen and (max-width: 850px) {
+            .nav-item .caption {
+                white-space: nowrap;
+            }
+
+            .nav-item .caption-text  {
+                display: none;
+            }
+        }
+
+        .nav-item span {
+            font-size: larger;
+        }
+
+        .nav-item .caption img {
+            width: 16px;
+            height: 16px;
         }
 
         a {
@@ -47,7 +103,7 @@
         }
 
         a .fa {
-            margin-right: 10px;
+            margin-right: var(--margin-double);
         }
 
         a:hover {
@@ -56,23 +112,31 @@
 
         .section-1 {
             font-size: large;
-            display: inline-block;
+            display: flex;
+            flex-wrap: wrap;
         }
 
         .section-2 {
             text-align: justify;
             font-size: large;
-            display: inline-block;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        article {
+
         }
 
         h2 {
-            margin-left: 10px;
+            margin-left: var(--margin-double);
             margin-bottom: unset;
         }
 
         .left-col {
-            padding: 5px;
-            float: left;
+            padding: var(--padding-default);
+            flex-grow: 1;
+            width: 50%;
+            min-width: 320px;
         }
 
         .section-1 .left-col {
@@ -84,8 +148,10 @@
         }
 
         .right-col {
-            padding: 5px;
-            float: right;
+            padding: var(--padding-default);
+            flex-grow: 1;
+            width: 50%;
+            min-width: 320px;
         }
 
         .section-1 .right-col {
@@ -94,8 +160,8 @@
 
         .section-2 .right-col {
             width: 30%;
-            border: 1px solid lightgrey;
-            border-radius: 5px;
+            border: var(--border-default);
+            border-radius: var(--border-radius);
         }
 
         img {
@@ -104,8 +170,8 @@
         }
 
         article {
-            padding: 5px;
-            margin-bottom: 5px;
+            padding: var(--padding-default);
+            margin-bottom: var(--margin-default);
         }
 
         .article-1 {
@@ -113,13 +179,13 @@
         }
 
         .article-2 {
-            border: 1px solid grey;
+            border:var(--border-default);
             width: 75%;
-            margin-bottom: 10px;
+            margin-bottom: var(--margin-double);
         }
 
         .article-3 {
-            padding: 5px;
+            padding: var(--padding-default);
         }
 
         .section-1 .article-2 {
@@ -131,7 +197,6 @@
             color: lightblue;
             background-color: lemonchiffon;
             width: 50%;
-            color: green;
         }
 
         .section-2 .article-3 {
@@ -162,24 +227,26 @@
         }
 
         .form-container {
-            padding: 10px;
-            border: 1px solid lightgrey;
-            border-radius: 5px;
+            padding: var(--padding-double);
+            border: var(--border-default);
+            border-radius: var(--border-radius);
             width: 25%;
-            margin-bottom: 5px;
+            min-width: fit-content;
+            margin-top: var(--margin-default);
+            margin-bottom: var(--margin-default);
         }
 
         .form-container .title {
             font-size: larger;
-            margin-bottom: 5px;
+            margin-bottom: var(--margin-default);
         }
 
         .form-container div {
-            margin-bottom: 5px;
+            margin-bottom: var(--margin-default);
         }
 
         .form-field {
-            padding-bottom: 10px;
+            padding-bottom: var(--padding-double);
         }
 
         .form-field label {
@@ -187,9 +254,9 @@
         }
 
         input, textarea {
-            padding: 9px 16px;
-            border-radius: 5px;
-            border: 1px solid lightblue;
+            padding: var(--padding-hd-16-9);
+            border-radius: var(--border-radius);
+            border: var(--border-default);
             box-shadow: 4px 4px 4px lightgrey;
         }
 
@@ -234,9 +301,9 @@
         }
 
         .form-container button {
-            padding: 9px 16px;
-            border-radius: 5px;
-            border: 1px solid lightgrey;
+            padding: var(--padding-hd-16-9);
+            border-radius: var(--border-radius);
+            border: var(--border-default);
             background-color: green;
             color: white;
         }
@@ -245,130 +312,224 @@
             background-color: yellowgreen;
         }
 
+        #toggle-mode {
+            visibility: hidden;
+            height: 0;
+        }
+
+        #toggle-mode:checked ~ .mode-dark {
+            display: none;
+        }
+
+        #toggle-mode:checked ~ .mode-light {
+            display: block;
+        }
+
+        .mode-dark {
+            display: block;
+        }
+
+        .mode-light {
+            display: none;
+        }
+
+        .mode {
+            position: fixed;
+            top: 0;
+            right: var(--margin-default);
+            border: 1px solid var(--background-color);
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+            color: black;
+            background-color: lightgrey;
+            padding: var(--padding-default);
+            text-align: center;
+        }
+
+        .body-container {
+            color-scheme: light;
+            border-radius: var(--border-radius);
+        }
+
+        .mode:has(#toggle-mode:checked) ~ .body-container {
+            color-scheme: dark;
+            background-color: var(--color-default);
+            color: var(--background-color-default);
+        }
+
     </style>
 </head>
 <body>
-<header id="header" title="Ez a fejléc">
-    <h1>Lorem ipsum</h1>
-</header>
-
-<nav>
-    <div class="nav-item">
-        <a href="#footer" title="Ugrás a végére"><i class="fa fa-arrow-down" aria-hidden="true"></i>Ugrás a végére</a>
-    </div>
-</nav>
-
-<section>
-    <div class="section-1">
-        <h2>Lorem ipsum (section - 1)</h2>
-        <div class="left-col">
-            <article class="article-1">
-                <h3>Lorem ipsum</h3>
-                <p>
-                    Lorem <span class="font-red">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
-                </p>
-            </article>
-            <article class="article-2">
-                <h3>Lorem ipsum</h3>
-                <p>
-                    Lorem <span class="font-red">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
-                </p>
-            </article>
-            <article class="article-3">
-                <h3>Lorem ipsum</h3>
-                <p>
-                    Lorem <span class="font-red">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
-                </p>
-            </article>
-        </div>
-        <div class="right-col">
-            <article class="article-1">
-                <h3>Lorem ipsum</h3>
-                <p>
-                    Lorem <span class="font-green">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
-                </p>
-            </article>
-            <article class="article-2">
-                <h3>Lorem ipsum</h3>
-                <p>
-                    Lorem <span class="font-green">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
-                </p>
-            </article>
-            <article class="article-3">
-                <h3>Lorem ipsum</h3>
-                <p>
-                    Lorem <span class="font-green">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
-                </p>
-            </article>
-        </div>
+    <div class="mode">
+        <input type="checkbox" id="toggle-mode">
+        <label for="toggle-mode" class="mode-dark" title="Váltás sötét módra"><em class="fa fa-moon"></em></label>
+        <label for="toggle-mode" class="mode-light" title="Váltás világos módra"><em class="fa fa-sun-o"></em></label>
     </div>
 
-    <div class="section-2">
-        <h2>Lorem ipsum (section - 2)</h2>
-        <div class="left-col">
-            <article class="article-1">
-                <h3>Lorem ipsum</h3>
-                <p>
-                    Lorem <span class="font-blue">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
-                </p>
-            </article>
-            <article class="article-2">
-                <h3>Lorem ipsum</h3>
-                <p>
-                    Lorem <span class="font-blue">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
-                </p>
-            </article>
-            <article class="article-3">
-                <h3>Lorem ipsum</h3>
-                <p>
-                    Lorem <span class="font-blue">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
-                </p>
-            </article>
+    <div class="body-container">
+        <nav>
+            <div class="nav-item">
+                <a href="#section-1" title="Ugrás az 1 részhez">
+                    <div class="caption">
+                        <span class="caption-number">1</span>
+                        <em class="fa fa-arrow-down" aria-hidden="true"></em>
+                        <span class="caption-text">Ugrás az első részhez</span>
+                    </div>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="#section-2" title="Ugrás az 2 részhez">
+                    <div class="caption">
+                        <span class="caption-number">2</span>
+                        <em class="fa fa-arrow-down" aria-hidden="true"></em>
+                        <span class="caption-text">Ugrás a második részhez</span>
+                    </div>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="#form" title="Ugrás az 2 részhez">
+                    <div class="caption">
+                        <span class="caption-number">F</span>
+                        <em class="fa fa-arrow-down" aria-hidden="true"></em>
+                        <span class="caption-text">Ugrás az űrlaphoz</span>
+                    </div>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="https://github.com/" target="_blank" title="Ugrás a Github.com-ra">
+                    <div class="caption">
+                        <img src="https://www.google.com/s2/favicons?domain=github.com"></imp>
+                        <span class="caption-text">Ugrás a Github.com-ra</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="nav-item">
+                <a href="#footer" title="Ugrás a végére">
+                    <div class="caption">
+                        <em class="fa fa-arrow-down" aria-hidden="true"></em>
+                        <span class="caption-text">Ugrás a végére</span>
+                    </div>
+                </a>
+            </div>
+        </nav>
+
+        <header id="header" title="Ez a fejléc">
+            <h1>Lorem ipsum</h1>
+        </header>
+
+        <section id="section-1">
+            <h2>Lorem ipsum (section - 1)</h2>
+            <div class="section-1">
+                <div class="left-col">
+                    <article class="article-1">
+                        <h3>Lorem ipsum</h3>
+                        <p>
+                            Lorem <span class="font-red">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
+                        </p>
+                    </article>
+                    <article class="article-2">
+                        <h3>Lorem ipsum</h3>
+                        <p>
+                            Lorem <span class="font-red">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
+                        </p>
+                    </article>
+                    <article class="article-3">
+                        <h3>Lorem ipsum</h3>
+                        <p>
+                            Lorem <span class="font-red">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
+                        </p>
+                    </article>
+                </div>
+                <div class="right-col">
+                    <article class="article-1">
+                        <h3>Lorem ipsum</h3>
+                        <p>
+                            Lorem <span class="font-green">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
+                        </p>
+                    </article>
+                    <article class="article-2">
+                        <h3>Lorem ipsum</h3>
+                        <p>
+                            Lorem <span class="font-green">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
+                        </p>
+                    </article>
+                    <article class="article-3">
+                        <h3>Lorem ipsum</h3>
+                        <p>
+                            Lorem <span class="font-green">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section id="section-2">
+            <h2>Lorem ipsum (section - 2)</h2>
+            <div class="section-2">
+                <div class="left-col">
+                    <article class="article-1">
+                        <h3>Lorem ipsum</h3>
+                        <p>
+                            Lorem <span class="font-blue">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
+                        </p>
+                    </article>
+                    <article class="article-2">
+                        <h3>Lorem ipsum</h3>
+                        <p>
+                            Lorem <span class="font-blue">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
+                        </p>
+                    </article>
+                    <article class="article-3">
+                        <h3>Lorem ipsum</h3>
+                        <p>
+                            Lorem <span class="font-blue">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
+                        </p>
+                    </article>
+                </div>
+                <div class="right-col">
+                    <img src="https://images.freeimages.com/images/large-previews/e83/meemu-pier-1366535.jpg" alt="Picture">
+                </div>
+            </div>
+        </section>
+
+        <div id="form" class="form-container">
+            <div class="title">Cikk küldése ismerősnek</div>
+
+            <form id="hazi-form" method="get">
+                <div class="form-field">
+                    <label for="form-name">Név
+                        <input id="form-name" type="text" name="nev" placeholder="Név.." required>
+                    </label>
+                </div>
+                <div class="form-field">
+                    <label for="form-phone">Telefonszám</label>
+                    <input id="form-phone" type="text" name="tel" placeholder="Telefonszám..">
+                </div>
+                <div class="form-field">
+                    <label for="form-email">Email</label>
+                    <input id="form-email" type="email" name="email" placeholder="Email.." required>
+                </div>
+                <div class="form-field">
+                    <label for="form-age">Kor</label>
+                    <input id="form-age" type="number" name="kor">
+                </div>
+                <div class="form-field">
+                    <label for="form-message">Üzenet</label>
+                    <textarea id="form-message" form="hazi-form" name="uzenet" rows="5"></textarea>
+                </div>
+                <div class="form-comment">
+                    Pirossal jelölt mezőket kötelező kitölteni!
+                </div>
+                <div>
+                    <button type="submit">Küldés</button>
+                </div>
+            </form>
         </div>
-        <div class="right-col">
-            <img src="https://images.freeimages.com/images/large-previews/e83/meemu-pier-1366535.jpg" alt="Picture">
-        </div>
+
+        <footer id="footer" title="Ez a lábléc">
+            <div class="footer-item">
+                <a href="#header" title="Ugrás az elejére"><i class="fa fa-arrow-up" aria-hidden="true"></i>Ugrás az elejére</a>
+            </div>
+        </footer>
     </div>
-</section>
-
-<div class="form-container">
-    <div class="title">Cikk küldése ismerősnek</div>
-
-    <form id="hazi-form" method="get">
-        <div class="form-field">
-            <label for="form-name">Név
-                <input id="form-name" type="text" name="nev" placeholder="Név.." required>
-            </label>
-        </div>
-        <div class="form-field">
-            <label for="form-phone">Telefonszám</label>
-            <input id="form-phone" type="text" name="tel" placeholder="Telefonszám..">
-        </div>
-        <div class="form-field">
-            <label for="form-email">Email</label>
-            <input id="form-email" type="email" name="email" placeholder="Email.." required>
-        </div>
-        <div class="form-field">
-            <label for="form-age">Kor</label>
-            <input id="form-age" type="number" name="kor">
-        </div>
-        <div class="form-field">
-            <label for="form-message">Üzenet</label>
-            <textarea id="form-message" form="hazi-form" name="uzenet" rows="5"></textarea>
-        </div>
-        <div class="form-comment">
-            Pirossal jelölt mezőket kötelező kitölteni!
-        </div>
-        <div>
-            <button type="submit">Küldés</button>
-        </div>
-    </form>
-</div>
-
-<footer id="footer" title="Ez a lábléc">
-    <div class="footer-item">
-        <a href="#header" title="Ugrás az elejére"><i class="fa fa-arrow-up" aria-hidden="true"></i>Ugrás az elejére</a>
-    </div>
-</footer>
 </body>
 </html>
