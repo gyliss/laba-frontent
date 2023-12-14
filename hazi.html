@@ -52,6 +52,12 @@
             color: var(--color-default);
         }
 
+        #color-theme-switcher {
+            position: absolute;
+            top: var(--bs-navbar-toggler-padding-y);
+            right: var(--bs-navbar-toggler-padding-xgit );
+        }
+
         .hf-btn-custom {
             color: var(--hf-btn-color);
             background-color: var(--hf-btn-background-color);
@@ -175,6 +181,10 @@
             padding: var(--padding-16-9);
         }
 
+        .nav-link {
+            padding-left: var(--padding-default);
+        }
+
     </style>
 </head>
 <body data-color-theme="light">
@@ -182,25 +192,22 @@
     <h1 id="hazi-top" class="d-none d-md-block">Lorem ipsum</h1>
     <nav id="navbar" class="navbar navbar-expand-md sticky-top">
         <div class="navbar-container container-fluid">
-            <button class="navbar-toggler sticky-top" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler sticky-top" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <a class="navbar-brand d-md-none" href="#">Lorem Ipsum</a>
             <div id="navbarCollapse" class="collapse navbar-collapse">
                 <ul class="navbar-nav mr-auto">
-                    <!--
-                    <li class="nav-item d-none d-md-block">
-                    -->
                     <li class="nav-item">
                         <a class="nav-link" href="#hazi-section-1">Ugrás az első cikkhez</a>
                     </li>
-                    <li class="nav-item d-none d-md-block">
+                    <li class="nav-item">
                         <a class="nav-link" href="#hazi-section-2">Ugrás a második cikkhez</a>
                     </li>
-                    <li class="nav-item d-none d-md-block">
+                    <li class="nav-item">
                         <a class="nav-link" href="#hazi-form">Ugrás az űrlaphoz</a>
                     </li>
-                    <li class="nav-item d-none d-md-block">
+                    <li class="nav-item">
                         <a class="nav-link" href="#hazi-footer">Ugrás az aljára</a>
                     </li>
                 </ul>
