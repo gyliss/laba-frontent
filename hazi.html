@@ -52,12 +52,6 @@
             color: var(--color-default);
         }
 
-        .color-theme-switcher-container {
-            position: fixed;
-            top: 0;
-            right: 0;
-        }
-
         .hf-btn-custom {
             color: var(--hf-btn-color);
             background-color: var(--hf-btn-background-color);
@@ -74,12 +68,6 @@
             filter: brightness(1.5);
             transition: background-color 1s cubic-bezier();
             font-weight: bold;
-        }
-
-        .color-theme-switcher-container .hf-btn-custom {
-            border-top-left-radius: unset;
-            border-top-right-radius: unset;
-            border-color: var(--hf-btn-background-color);
         }
 
         h2 {
@@ -190,9 +178,6 @@
     </style>
 </head>
 <body data-color-theme="light">
-<div class="color-theme-switcher-container">
-    <button type="button" id="color-theme-switcher" class="btn hf-btn-custom" title="Váltás sötét módra"><em class="fa fa-moon"></em></button>
-</div>
 <div class="container">
     <h1 id="hazi-top" class="d-none d-md-block">Lorem ipsum</h1>
     <nav id="navbar" class="navbar navbar-expand-md sticky-top">
@@ -220,6 +205,7 @@
                     </li>
                 </ul>
             </div>
+            <button type="button" id="color-theme-switcher" class="btn hf-btn-custom" title="Váltás sötét módra"><em class="fa fa-moon"></em></button>
         </div>
     </nav>
 
