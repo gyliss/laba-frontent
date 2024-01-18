@@ -6,10 +6,12 @@
     <title>Lorem Ipsum</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="hazi_ts.js"></script>
     <link href="https://fonts.google.com/specimen/Roboto" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css" integrity="sha256-XoaMnoYC5TH6/+ihMEnospgm0J1PM/nioxbOUdnM8HY=" crossorigin="anonymous">
     <style>
         :root {
+            /* https://www.colorpoint.io/free-tools-for-developers/color-palette-from-image-url/ */
             --color-1: rgb(204,195,179);
             --color-2: rgb(73,65,34);
             --color-3: rgb(126,73,35);
@@ -21,6 +23,8 @@
             --padding-default: 5px;
             --padding-16-9: 9px 16px;
 
+            --gap-default: 5px;
+
             --margin-default: 5px;
             --margin-double: calc(var(--margin-default) * 2);
 
@@ -31,49 +35,52 @@
             --background-color-default: var(--color-1);
             --color-default: var(--color-2);
 
-            --hf-btn-color: var(--color-1);
-            --hf-btn-background-color: var(--color-5);
-            --hf-btn-border-color: var(--color-3);
-            --hf-btn-border: 1px solid var(--hf-btn-border-color);
+            --hazi-btn-color: var(--color-1);
+            --hazi-btn-background-color: var(--color-5);
+            --hazi-btn-border-color: var(--color-3);
+            --hazi-btn-border: 1px solid var(--hazi-btn-border-color);
         }
 
         body[data-color-theme="dark"] {
             --background-color-default: var(--color-2);
             --color-default: var(--color-1);
 
-            --hf-btn-color: var(--color-1);
-            --hf-btn-background-color: var(--color-5);
-            --hf-btn-border-color: var(--color-3);
-            --hf-btn-border: 1px solid var(--hf-btn-border-color);
+            --hazi-btn-color: var(--color-1);
+            --hazi-btn-background-color: var(--color-5);
+            --hazi-btn-border-color: var(--color-3);
+            --hazi-btn-border: 1px solid var(--hazi-btn-border-color);
         }
 
         body {
+            min-width: 373px;
             background-color: var(--background-color-default);
             color: var(--color-default);
         }
 
-        #color-theme-switcher {
-            position: absolute;
-            top: var(--bs-navbar-toggler-padding-y);
-            right: var(--bs-navbar-toggler-padding-xgit );
-        }
-
-        .hf-btn-custom {
-            color: var(--hf-btn-color);
-            background-color: var(--hf-btn-background-color);
-            border: var(--hf-btn-border);
+        .hazi-btn-custom {
+            color: var(--hazi-btn-color);
+            background-color: var(--hazi-btn-background-color);
+            border: var(--hazi-btn-border);
             width: fit-content;
             padding: var(--padding-16-9);
             transition: background-color 2s ease-in-out .2s;
         }
 
-        .hf-btn-custom:hover {
-            color: var(--hf-btn-color);
-            background-color: var(--hf-btn-background-color);
-            border: var(--hf-btn-border);
+        .hazi-btn-custom:hover {
+            color: var(--hazi-btn-color);
+            background-color: var(--hazi-btn-background-color);
+            border: var(--hazi-btn-border);
             filter: brightness(1.5);
-            transition: background-color 1s cubic-bezier();
+            transition: background-color 1s linear;
             font-weight: bold;
+        }
+
+        #readtime {
+            font-size: small;
+        }
+
+        mark {
+            padding: unset;
         }
 
         h2 {
@@ -82,26 +89,27 @@
 
         h2 span {
             font-size: xx-small;
-            color: var(--hf-btn-background-color);
+            color: var(--hazi-btn-background-color);
         }
 
-        .navbar-container {
-            padding-left: 0;
-        }
-
-        .navbar {
+        .hazi-navbar {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            padding: var(--padding-default);
             background-color: var(--color-4);
-            border-radius: var(--border-radius);
         }
 
-        .navbar-expand-sm .navbar-nav .nav-link {
-            padding-left: 0;
+        .hazi-navbar-fixed {
+            gap: var(--gap-default);
+            padding: var(--padding-default);
+            position: absolute;
+            top: -2px;
+            right: calc(var(--bs-gutter-x) * .5);
         }
 
-        .navbar-toggler {
-            margin-left: 0;
-            position: sticky;
-            top: 0;
+        #searchtext {
+            width: 150px;
         }
 
         .nav-link {
@@ -136,6 +144,10 @@
 
         .section-2 img {
             content: var(--img-url);
+        }
+
+        #author {
+            display: none;
         }
 
         #hazi-form {
@@ -188,205 +200,172 @@
     </style>
 </head>
 <body data-color-theme="light">
-<div class="container">
-    <h1 id="hazi-top" class="d-none d-md-block">Lorem ipsum</h1>
-    <nav id="navbar" class="navbar navbar-expand-md sticky-top">
-        <div class="navbar-container container-fluid">
-            <button class="navbar-toggler sticky-top" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <a class="navbar-brand d-md-none" href="#">Lorem Ipsum</a>
-            <div id="navbarCollapse" class="collapse navbar-collapse">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#hazi-section-1">Ugrás az első cikkhez</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#hazi-section-2">Ugrás a második cikkhez</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#hazi-form">Ugrás az űrlaphoz</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#hazi-footer">Ugrás az aljára</a>
-                    </li>
-                </ul>
-            </div>
-            <button type="button" id="color-theme-switcher" class="btn hf-btn-custom" title="Váltás sötét módra"><em class="fa fa-moon"></em></button>
-        </div>
-    </nav>
+    <div class="container">
+        <h1 id="hazi-top" class="d-none d-md-block">
+            Lorem ipsum
+            <div id="readtime" class="d-none d-md-block"></div>
+        </h1>
 
-    <section id="hazi-section-1" class="col">
-        <h2>Lorem ipsum<span>(section - 1)</span></h2>
-        <div class="section-1 row">
-            <div class="left-col col-xs col-sm-6">
+        <nav class="navbar navbar-expand-lg hazi-navbar">
+            <div class="container-fluid">
+                <button type="button"
+                        id="hazi-navbar-toggler"
+                        class="navbar-toggler btn hazi-btn-custom"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapse-content"
+                        title="Menü megjelenítése">
+                    <em class="fa fa-bars" aria-hidden="true"></em>
+                </button>
+                <div id="collapse-content" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a class="nav-link text-nowrap" href="#hazi-section-1">Ugrás az első cikkhez</a>
+                        </li>
+                        <li>
+                            <a class="nav-link text-nowrap" href="#hazi-section-2">Ugrás a második cikkhez</a>
+                        </li>
+                        <li>
+                            <a class="nav-link text-nowrap" href="#hazi-szerzo">Ugrás a szerzőhöz</a>
+                        </li>
+                        <li>
+                            <a class="nav-link text-nowrap" href="#hazi-form">Ugrás az űrlaphoz</a>
+                        </li>
+                        <li>
+                            <a class="nav-link text-nowrap" href="#hazi-footer">Ugrás az aljára</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="d-flex align-items-center hazi-navbar-fixed">
+                    <input type="text" id="searchtext" class="form-control">
+                    <button type="button" id="searchbutton" class="btn hazi-btn-custom" title="Keresés"><em class="fa fa-search"></em></button>
+                    <button type="button" id="color-theme-switcher" class="btn hazi-btn-custom" title="Váltás sötét módra"><em class="fa fa-moon"></em></button>
+                </div>
+            </div>
+        </nav>
+
+        <section id="hazi-section-1" class="col">
+            <h2>Lorem ipsum<span>(section - 1)</span></h2>
+            <div class="section-1 row">
+                <div class="left-col col-xs col-sm-6">
+                    <article class="article-1">
+                        <h3>Lorem ipsum</h3>
+                        <p>
+                            Lorem <span class="font-red">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
+                        </p>
+                    </article>
+                    <article class="article-2">
+                        <h3>Lorem ipsum</h3>
+                        <p>
+                            Lorem <span class="font-red">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
+                        </p>
+                    </article>
+                    <article class="article-3">
+                        <h3>Lorem ipsum</h3>
+                        <p>
+                            Lorem <span class="font-red">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
+                        </p>
+                    </article>
+                </div>
+                <div class="right-col col-xs col-sm-6">
+                    <article class="article-1">
+                        <h3>Lorem ipsum</h3>
+                        <p>
+                            Lorem <span class="font-green">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
+                        </p>
+                    </article>
+                    <article class="article-2">
+                        <h3>Lorem ipsum</h3>
+                        <p>
+                            Lorem <span class="font-green">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
+                        </p>
+                    </article>
+                    <article class="article-3">
+                        <h3>Lorem ipsum</h3>
+                        <p>
+                            Lorem <span class="font-green">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section id="hazi-section-2" class="col">
+            <h2>Lorem ipsum<span>(section - 2)</span></h2>
+            <div class="section-2 col">
                 <article class="article-1">
                     <h3>Lorem ipsum</h3>
                     <p>
-                        Lorem <span class="font-red">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
+                        Lorem <span class="font-blue">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
                     </p>
                 </article>
                 <article class="article-2">
                     <h3>Lorem ipsum</h3>
                     <p>
-                        Lorem <span class="font-red">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
+                        Lorem <span class="font-blue">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
                     </p>
                 </article>
                 <article class="article-3">
                     <h3>Lorem ipsum</h3>
                     <p>
-                        Lorem <span class="font-red">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
+                        Lorem <span class="font-blue">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
                     </p>
                 </article>
+                <img class="img-fluid" alt="Picture">
             </div>
-            <div class="right-col col-xs col-sm-6">
-                <article class="article-1">
-                    <h3>Lorem ipsum</h3>
-                    <p>
-                        Lorem <span class="font-green">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
-                    </p>
-                </article>
-                <article class="article-2">
-                    <h3>Lorem ipsum</h3>
-                    <p>
-                        Lorem <span class="font-green">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
-                    </p>
-                </article>
-                <article class="article-3">
-                    <h3>Lorem ipsum</h3>
-                    <p>
-                        Lorem <span class="font-green">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
-                    </p>
-                </article>
+        </section>
+
+        <div id="hazi-szerzo">
+            <h2>Szerző:</h2>
+            <div class="name"></div>
+            <div class="email">
+                <a href=""></a>
             </div>
+            <div class="address"></div>
+            <div class="phone"></div>
+            <div class="company"></div>
         </div>
-    </section>
-    <section id="hazi-section-2" class="col">
-        <h2>Lorem ipsum<span>(section - 2)</span></h2>
-        <div class="section-2 col">
-            <article class="article-1">
-                <h3>Lorem ipsum</h3>
-                <p>
-                    Lorem <span class="font-blue">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
-                </p>
-            </article>
-            <article class="article-2">
-                <h3>Lorem ipsum</h3>
-                <p>
-                    Lorem <span class="font-blue">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
-                </p>
-            </article>
-            <article class="article-3">
-                <h3>Lorem ipsum</h3>
-                <p>
-                    Lorem <span class="font-blue">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
-                </p>
-            </article>
-            <img class="img-fluid" alt="Picture">
+
+        <div id="hazi-form">
+            <h2>Cikk küldése ismerősnek</h2>
+
+            <form method="post">
+                <div class="form-group">
+                    <label for="input-name">Név</label>
+                    <input type="text" class="form-control" id="input-name" name="nev" placeholder="Név..." required>
+                </div>
+
+                <div class="form-group">
+                    <label for="input-phone">Telefonszám</label>
+                    <input type="tel" class="form-control" id="input-phone" name="tel" placeholder="Telefonszám..." required>
+                </div>
+
+                <div class="form-group">
+                    <label for="input-email">Email cím</label>
+                    <input type="email" class="form-control" id="input-email" name="email" placeholder="Email..." required>
+                </div>
+
+                <div class="form-group">
+                    <label for="input-age">Életkor</label>
+                    <input type="number" class="form-control" id="input-age" name="kor" placeholder="Életkor..." required>
+                </div>
+
+                <div class="form-group">
+                    <label for="input-message">Üzenet</label>
+                    <textarea class="form-control" id="input-message" name="uzenet" placeholder="Üzenet..." rows="5"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <button class="btn hazi-btn-custom" type="submit">Küldés</button>
+                </div>
+
+            </form>
         </div>
-    </section>
 
-    <div id="hazi-form">
-        <h2>Cikk küldése ismerősnek</h2>
-
-        <form method="post">
-            <div class="form-group">
-                <label for="input-name">Név</label>
-                <input type="text" class="form-control" id="input-name" name="nev" placeholder="Név..." required>
+        <footer id="hazi-footer" class="footer" title="Ez itt a lábléc">
+            <div class="nav-item d-none d-md-block">
+                <a class="nav-link" href="#hazi-top">Ugrás az elejére</a>
             </div>
-
-            <div class="form-group">
-                <label for="input-phone">Telefonszám</label>
-                <input type="tel" class="form-control" id="input-phone" name="tel" placeholder="Telefonszám..." required>
-            </div>
-
-            <div class="form-group">
-                <label for="input-email">Email cím</label>
-                <input type="email" class="form-control" id="input-email" name="email" placeholder="Email..." required>
-            </div>
-
-            <div class="form-group">
-                <label for="input-age">Életkor</label>
-                <input type="number" class="form-control" id="input-age" name="kor" placeholder="Életkor..." required>
-            </div>
-
-            <div class="form-group">
-                <label for="input-message">Üzenet</label>
-                <textarea class="form-control" id="input-message" name="uzenet" placeholder="Üzenet..." rows="5"></textarea>
-            </div>
-
-            <div class="form-group">
-                <button class="btn hf-btn-custom" type="submit">Küldés</button>
-            </div>
-
-        </form>
+        </footer>
     </div>
-
-    <footer id="hazi-footer" class="footer" title="Ez itt a lábléc">
-        <div class="nav-item d-none d-md-block">
-            <a class="nav-link" href="#hazi-top">Ugrás az elejére</a>
-        </div>
-    </footer>
-
-</div>
-
-<script>
-    const gMain = {
-        colorThemeKey: 'color-theme',
-        colorThemeDarkValue: 'dark',
-        colorThemeLightValue: 'light',
-        switchColorTheme: function(colorTheme) {
-            let currentColorTheme = document.querySelector("body").getAttribute('data-' + gMain.colorThemeKey);
-            let newColorTheme = null;
-            if (!colorTheme) {
-                if (currentColorTheme === gMain.colorThemeLightValue) {
-                    newColorTheme = gMain.colorThemeDarkValue;
-                } else if (currentColorTheme === gMain.colorThemeDarkValue) {
-                    newColorTheme = gMain.colorThemeLightValue;
-                } else {
-                    newColorTheme = gMain.colorThemeLightValue;
-                }
-            } else {
-                newColorTheme = colorTheme;
-            }
-
-            localStorage.setItem(gMain.colorThemeKey, newColorTheme);
-            const colorThemeSwitcherButton = document.getElementById("color-theme-switcher");
-            document.querySelector("body").setAttribute('data-' + gMain.colorThemeKey, newColorTheme);
-
-            if (newColorTheme === gMain.colorThemeLightValue) {
-                colorThemeSwitcherButton.setAttribute('title', 'Váltás sötét módra');
-                colorThemeSwitcherButton.innerHTML = "<em class=\"fa fa-moon\"></em>";
-            } else {
-                colorThemeSwitcherButton.setAttribute('title', 'Váltás világos módra');
-                colorThemeSwitcherButton.innerHTML = "<em class=\"fa fa-sun-o\"></em>";
-            }
-        }
-    }
-
-    let storedColorTheme = localStorage.getItem(gMain.colorThemeKey);
-
-    if (!storedColorTheme
-            || (storedColorTheme !== gMain.colorThemeDarkValue
-                    && storedColorTheme !== gMain.colorThemeLightValue)) {
-        if (window.matchMedia) {
-            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                currentColorTheme = gMain.colorThemeDarkValue;
-            } else {
-                currentColorTheme = gMain.colorThemeLightValue;
-            }
-        } else {
-            currentColorTheme = gMain.colorThemeLightValue;
-        }
-    } else {
-        currentColorTheme = storedColorTheme;
-    }
-
-    gMain.switchColorTheme(currentColorTheme);
-
-    document.getElementById('color-theme-switcher').addEventListener("click", function(event) {
-        gMain.switchColorTheme();
-    });
-</script>
 </body>
 </html>
