@@ -24,7 +24,7 @@
             --color-2: #644C30;
             --color-3: #7E4923;
             --color-4: #5A4A2A;
-            --color-5: #818861;
+            --color-5: #C1C5AF;
             --border-radius: 5px;
             --padding-default: 5px;
             --padding-16-9: 9px 16px;
@@ -102,6 +102,10 @@
             position: absolute;
             top: -2px;
             right: calc(var(--bs-gutter-x) * .5);
+        }
+
+        #searchtext-label {
+            display: none;
         }
 
         #searchtext {
@@ -226,7 +230,7 @@
                 </div>
 
                 <div class="d-flex align-items-center hazi-navbar-fixed">
-                    <label for="searchtext">Search</label>
+                    <label id="searchtext-label" for="searchtext">Keresés</label>
                     <input type="text" id="searchtext" class="form-control">
                     <button type="button" id="searchbutton" class="btn hazi-btn-custom" title="Keresés"><em class="fa fa-search"></em></button>
                     <button type="button" id="color-theme-switcher" class="btn hazi-btn-custom" title="Váltás sötét módra"><em class="fa fa-moon"></em></button>
