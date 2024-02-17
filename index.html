@@ -104,10 +104,6 @@
             right: calc(var(--bs-gutter-x) * .5);
         }
 
-        #searchtext-label {
-            display: none;
-        }
-
         #searchtext {
             width: 150px;
         }
@@ -252,9 +248,8 @@
                 </div>
 
                 <div class="d-flex align-items-center hazi-navbar-fixed">
-                    <label id="searchtext-label" for="searchtext" aria-hidden="true">Keresés</label>
-                    <input type="text" id="searchtext" class="form-control">
-                    <button type="button" id="searchbutton" class="btn hazi-btn-custom" title="Keresés"><em class="fa fa-search"></em></button>
+                    <input type="text" id="searchtext" class="form-control" aria-label="Keresés a cikken belül">
+                    <button type="button" id="searchbutton" class="btn hazi-btn-custom" title="Keresés"><em class="fa fa-search" ></em></button>
                     <button type="button" id="color-theme-switcher" class="btn hazi-btn-custom" title="Váltás sötét módra"><em class="fa fa-moon"></em></button>
                 </div>
             </div>
