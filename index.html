@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZG10BXES7L"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-ZG10BXES7L');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Lorem Ipsum</title>
@@ -11,30 +20,23 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css" integrity="sha256-XoaMnoYC5TH6/+ihMEnospgm0J1PM/nioxbOUdnM8HY=" crossorigin="anonymous">
     <style>
         :root {
-            /* https://www.colorpoint.io/free-tools-for-developers/color-palette-from-image-url/ */
-            --color-1: rgb(204,195,179);
-            --color-2: rgb(73,65,34);
-            --color-3: rgb(126,73,35);
-            --color-4: rgb(146,110,72);
-            --color-5: rgb(129,136,97);
-
+            --color-1: #F4F3F0;
+            --color-2: #644C30;
+            --color-3: #7E4923;
+            --color-4: #5A4A2A;
+            --color-5: #C1C5AF;
             --border-radius: 5px;
-
             --padding-default: 5px;
             --padding-16-9: 9px 16px;
-
             --gap-default: 5px;
-
             --margin-default: 5px;
             --margin-double: calc(var(--margin-default) * 2);
-
             --img-url: url("https://images.freeimages.com/images/large-previews/e83/meemu-pier-1366535.jpg");
         }
 
         body[data-color-theme="light"] {
             --background-color-default: var(--color-1);
             --color-default: var(--color-2);
-
             --hazi-btn-color: var(--color-1);
             --hazi-btn-background-color: var(--color-5);
             --hazi-btn-border-color: var(--color-3);
@@ -44,7 +46,6 @@
         body[data-color-theme="dark"] {
             --background-color-default: var(--color-2);
             --color-default: var(--color-1);
-
             --hazi-btn-color: var(--color-1);
             --hazi-btn-background-color: var(--color-5);
             --hazi-btn-border-color: var(--color-3);
@@ -87,11 +88,6 @@
             color: var(--color-5);
         }
 
-        h2 span {
-            font-size: xx-small;
-            color: var(--hazi-btn-background-color);
-        }
-
         .hazi-navbar {
             display: flex;
             flex-direction: row;
@@ -114,27 +110,12 @@
 
         .nav-link {
             color: var(--color-1);
+            padding-left: var(--padding-default);
         }
 
         #hazi-section-1, #hazi-section-2, #hazi-form, #hazi-footer {
             scroll-margin-top: 56px;
             margin-bottom: var(--margin-double);
-        }
-
-        p {
-            text-align: justify;
-        }
-
-        .font-red {
-            color: red;
-        }
-
-        .font-blue {
-            color: blue;
-        }
-
-        .font-green {
-            color: green;;
         }
 
         .article-1, .article-2, .article-3 {
@@ -160,6 +141,10 @@
 
         #hazi-szerzo {
             display: none;
+        }
+
+        #hazi-szerzo a {
+            color: var(--color-default);
         }
 
         #hazi-form {
@@ -199,14 +184,28 @@
             resize: vertical;
         }
 
+        .hazi-btn-form {
+            color: #412F2F;
+            background-color: var(--hazi-btn-background-color);
+            border: var(--hazi-btn-border);
+            width: fit-content;
+            padding: var(--padding-16-9);
+            transition: background-color 2s ease-in-out .2s;
+        }
+
+        .hazi-btn-form:hover {
+            color: #412F2F;
+            background-color: var(--hazi-btn-background-color);
+            border: var(--hazi-btn-border);
+            filter: brightness(1.5);
+            transition: background-color 1s linear;
+            font-weight: bold;
+        }
+
         .footer {
             background-color: var(--color-4);
             border-radius: var(--border-radius);
             padding: var(--padding-16-9);
-        }
-
-        .nav-link {
-            padding-left: var(--padding-default);
         }
 
     </style>
@@ -215,7 +214,7 @@
     <div class="container">
         <h1 id="hazi-top" class="d-none d-md-block">
             Lorem ipsum
-            <div id="readtime" class="d-none d-md-block"></div>
+            <span id="readtime" class="d-none d-md-block"></span>
         </h1>
 
         <nav class="navbar navbar-expand-lg hazi-navbar">
@@ -249,33 +248,33 @@
                 </div>
 
                 <div class="d-flex align-items-center hazi-navbar-fixed">
-                    <input type="text" id="searchtext" class="form-control">
-                    <button type="button" id="searchbutton" class="btn hazi-btn-custom" title="Keresés"><em class="fa fa-search"></em></button>
+                    <input type="text" id="searchtext" class="form-control" aria-label="Keresés a cikken belül">
+                    <button type="button" id="searchbutton" class="btn hazi-btn-custom" title="Keresés"><em class="fa fa-search" ></em></button>
                     <button type="button" id="color-theme-switcher" class="btn hazi-btn-custom" title="Váltás sötét módra"><em class="fa fa-moon"></em></button>
                 </div>
             </div>
         </nav>
 
         <section id="hazi-section-1" class="col">
-            <h2>Lorem ipsum<span>(section - 1)</span></h2>
+            <h2>Lorem ipsum</h2>
             <div class="section-1 row">
                 <div class="left-col col-xs col-sm-6">
                     <article class="article-1">
                         <h3>Lorem ipsum</h3>
                         <p>
-                            Lorem <span class="font-red">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
                         </p>
                     </article>
                     <article class="article-2">
                         <h3>Lorem ipsum</h3>
                         <p>
-                            Lorem <span class="font-red">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
                         </p>
                     </article>
                     <article class="article-3">
                         <h3>Lorem ipsum</h3>
                         <p>
-                            Lorem <span class="font-red">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
                         </p>
                     </article>
                 </div>
@@ -283,46 +282,46 @@
                     <article class="article-1">
                         <h3>Lorem ipsum</h3>
                         <p>
-                            Lorem <span class="font-green">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
                         </p>
                     </article>
                     <article class="article-2">
                         <h3>Lorem ipsum</h3>
                         <p>
-                            Lorem <span class="font-green">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
                         </p>
                     </article>
                     <article class="article-3">
                         <h3>Lorem ipsum</h3>
                         <p>
-                            Lorem <span class="font-green">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
                         </p>
                     </article>
                 </div>
             </div>
         </section>
         <section id="hazi-section-2" class="col">
-            <h2>Lorem ipsum<span>(section - 2)</span></h2>
+            <h2>Lorem ipsum</h2>
             <div class="section-2 col">
                 <article class="article-1">
                     <h3>Lorem ipsum</h3>
                     <p>
-                        Lorem <span class="font-blue">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
                     </p>
                 </article>
                 <article class="article-2">
                     <h3>Lorem ipsum</h3>
                     <p>
-                        Lorem <span class="font-blue">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
                     </p>
                 </article>
                 <article class="article-3">
                     <h3>Lorem ipsum</h3>
                     <p>
-                        Lorem <span class="font-blue">ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Massa sed elementum tempus egestas sed. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec. Sit amet cursus sit amet dictum. Ultricies mi quis hendrerit dolor magna. Justo donec enim diam vulputate ut pharetra sit amet aliquam. Orci a scelerisque purus semper eget duis at tellus at. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Adipiscing at in tellus integer. Eget velit aliquet sagittis id consectetur purus ut. Commodo elit at imperdiet dui accumsan sit. Orci sagittis eu volutpat odio facilisis mauris. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra.
                     </p>
                 </article>
-                <img class="img-fluid" alt="Picture">
+                <img class="img-fluid" src="https://images.freeimages.com/images/large-previews/e83/meemu-pier-1366535.jpg" alt="Picture">
             </div>
         </section>
 
@@ -330,7 +329,7 @@
             <h2>Szerző:</h2>
             <div class="name"></div>
             <div class="email">
-                <a href=""></a>
+                <a href="">Email küldés</a>
             </div>
             <div class="address"></div>
             <div class="phone"></div>
@@ -367,7 +366,7 @@
                 </div>
 
                 <div class="form-group">
-                    <button class="btn hazi-btn-custom" type="submit">Küldés</button>
+                    <button class="btn hazi-btn-form" type="submit">Küldés</button>
                 </div>
 
             </form>
