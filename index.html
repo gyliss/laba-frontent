@@ -188,6 +188,24 @@
             resize: vertical;
         }
 
+        .hazi-btn-form {
+            color: #412F2F;
+            background-color: var(--hazi-btn-background-color);
+            border: var(--hazi-btn-border);
+            width: fit-content;
+            padding: var(--padding-16-9);
+            transition: background-color 2s ease-in-out .2s;
+        }
+
+        .hazi-btn-form:hover {
+            color: #412F2F;
+            background-color: var(--hazi-btn-background-color);
+            border: var(--hazi-btn-border);
+            filter: brightness(1.5);
+            transition: background-color 1s linear;
+            font-weight: bold;
+        }
+
         .footer {
             background-color: var(--color-4);
             border-radius: var(--border-radius);
@@ -353,7 +371,7 @@
                 </div>
 
                 <div class="form-group">
-                    <button class="btn hazi-btn-custom" type="submit">Küldés</button>
+                    <button class="btn hazi-btn-form" type="submit">Küldés</button>
                 </div>
 
             </form>
